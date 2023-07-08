@@ -1,0 +1,6 @@
+Deve criar uma classe que tenha metodo construtos,
+
+
+1. com a obrigaçao de inicializar todos os atributos
+2. com a obrigação de inicializar apenas alguns
+3. tipagem no construtor
