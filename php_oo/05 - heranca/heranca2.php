@@ -1,81 +1,65 @@
 <?php
 
-class Documento 
-
+class Pessoa
 {
-	//atributo
-	private $numero;
+	//METODOS
+	//public
+	public static $nome;
+	//portected 
+	protected $idade;
+	//private
+	private $senha;
 	
-	//CONSTRUTOR DA CLASSE DOCUMENTOS 
-	public function __construct($numero){
-	
-	$this->numero = $numero;
-	
+	public function __construct($nome, $idade, $senha){
+		self::$nome = $nome;
+		$this->idade = $idade;
+		$this->senha = $senha;	
 	}
 	
-	//getter e setters
-	public function getNumero()
-	{
-	return $this->numero;
+	public function getSenha(){
+	
+	return $this->senha;
+		
 	}
 	
-	public function setNumero($num)
-	{
-	$this->numero = $num;	
+	//metodo privado so é acessado dentro da classe
+	private function acessoDados(){
+		echo "Posso ver os dados diretamente estou dentro da classe" . "</br>";
+		echo self::$nome . "<br>";
+		echo $this->idade . "<br>";
+		echo $this->senha . "<br>";
 	}
 	
+	//metodo ver dados, os objetos externos conseguem ver os dados sem chamar o atributo pode chamar pelo toString tambem
+	public function verDados(){
+	$this->acessoDados();
+	}
 	
-}
-	//HERANCA	
-	class CPF extends Documento 
+	public function __toString(){
+		return  "nome -> " . self::$nome . " -> Idade -> " . $this->idade . " Senha - >" . $this->senha;
+
+	}
+	
+}//FIM DA CLASSE PESSOA PARA USAR EM QUALQUER TIPO DE PESSOA	
+	
+	//HERANCA (UM ESTTUDANTE É UMA PESSOA) QUE TEM A DIFERENCA QUE TEM MATRICULA TEM A ACAO DE LER LIVRO
+	//ENTAO IREMOS USAR A CLASSE PESSOA JA QUE ELA PODE SER UTIL PARA QUALQUER TIPO DE PESSOA NO SISTEMA
+	
+	class Estudante extends Pessoa
 	{	
-		public $modelo; //como se fosse cpf ou sic
+		//atributos que pertencem apenas aos estudantes
+		public $matricula;
 		
-		public function __construct($modelo)
-		{
-		$this->modelo = $modelo;
-		}
-		
-		//valicar cpf
-		public function validar()
-		{
-		echo $this->getNumero();
+		//metodo construtor de estudante passando o valor recebido da matricula para o atributo matricula
+		public function __construct($maticula,$nome,$idade,$senha){//perceba que ele recebe o valor tambem do construtor de pessoas
+			$this->matricula = $maticula;//atribuindo a matricula
+			parent::__construct($nome,$idade,$senha);//enviando para o parent::construtor de pessoa
 		
 		}
 	}
-	
-	
-	/*
-	
-	ao extender uma classe se a classe mae tiver um costrutor ele é obrigatorio na classe filha
-	se a classe filha tiver um construtor vc pode usar parent
-	
-	
-	class ClasseMae {
-    public function __construct($parametro) {
-        // código do construtor da classe mãe
-    }
-}
-
-class ClasseFilha extends ClasseMae {
-    public function __construct($parametro, $outroParametro) {
-        parent::__construct($parametro); // chamando o construtor da classe mãe
-        // código do construtor da classe filha
-    }
-}
-
-// Instanciando a classe filha
-$instancia = new ClasseFilha($parametro, $outroParametro);
 
 
-*/
-	
+//instanciando a classe estudante
+$estudante = new Estudante(50,'timoteo',10,20);// perceba que ele recebe os dados de um estudante e de uma pessoa
 
-	$doc = new CPF(10);
-	
-	$doc->getNumero();
-	echo $doc->modelo;
-	
-	$doc->validar();
-	
-	
+print " </br> Tenho acesso a senha porque getSenha() é publico eu nao tenho acesso a 'this->senha' porque ele é privado  Estudante->getSenha(" . ($estudante->getSenha() . ")"); //A CLASSE NAO TEM TOSTRING
