@@ -15,7 +15,7 @@ class User {
     }
 
     public function getPassword(){
-        
+
     }
 
 }
@@ -34,8 +34,6 @@ class Authenticator {
 }
 
 // Uso do código:
-
 $user = new User('usuario', 'senha');
 $authenticator = new Authenticator();
-
 $authenticator->login($user);
