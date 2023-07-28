@@ -1,13 +1,12 @@
 <?php 
 
-require_once 'conexao.php';
-require_once 'filmes.php';
-require_once 'interfaceFilmes.php';
+require_once 'Conexao.php';
+require_once 'Filmes.php';
+require_once 'FnterfaceFilmes.php';
 
 //interface para que todo os futuros repositorio
 //que venham implementar esse projeto tenham
 //os metodos nescessarios para seu funcionamento
-
 
 //classe repositorio_filmes implemeta a interfacer IRepostorio
 class RepositorioFilmesMySQL implements IRepositorioFilmes 
@@ -32,12 +31,12 @@ class RepositorioFilmesMySQL implements IRepositorioFilmes
 	public function cadastrarFilme($filme)//estamos recebendo um objteo do tipo objeto com dados e funcoes deste objeto
 	{
 
-		$titulo = $filmes->getTitulo;
-		$sinopse = $filmes->
+		$titulo = $filme->getTitulo();
+		$sinopse = $filme->getSinopse();
+		$quantidade = $filme->getQuantidate();
+		$trailer = $filme->getTrailer();
 		
-
+		$sql = "INSERT INTO filme (titulo,sinopse,quantidade,trailer) VALUE ('$titulo','$sinopse','$quantidade','$trailer')";
+		$this->conexao->execultarQuery($sql);
 	}
-
-
-
 }
