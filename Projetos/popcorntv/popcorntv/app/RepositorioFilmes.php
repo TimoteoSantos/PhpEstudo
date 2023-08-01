@@ -39,4 +39,32 @@ class RepositorioFilmesMySQL implements IRepositorioFilmes
 		$sql = "INSERT INTO filme (titulo,sinopse,quantidade,trailer) VALUE ('$titulo','$sinopse','$quantidade','$trailer')";
 		$this->conexao->execultarQuery($sql);
 	}
+
+	//remover filme 
+	public function removerFilme($codigo)
+	{
+		$sql = "DELETE FROM  filme WHERE codigo = '$codigo'"; //recebe os comandos em sql e atribui a variavel $sql
+		$this->conexao->execultarQuery($sql);//chama o metodo execultarQuery() da classe conexao
+	}
+
+	//atualizar filme
+	public function atualizarFilme($filme) //recebendo o objeto filme
+	{
+		$titulo = $filme->getTitulo();
+		$codigo = $filme->getCodigo();
+		$sinopse = $filme->getSinopse();
+		$quantidade = $filme->getQuantidate();
+		$trailer = $filme->getTrailer();
+
+		$sql = "UPDATE filme SET titulo = '$titulo', sinopse = '$sinopse', quantidade = '$quantidade', trailer = '$trailer'
+		WHERE $codigo = '$codigo'";
+
+		$this->conexao->execultarQuery($sql);
+	}
+
+	
+
+
+
+
 }
