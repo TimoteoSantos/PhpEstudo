@@ -62,9 +62,60 @@ class RepositorioFilmesMySQL implements IRepositorioFilmes
 		$this->conexao->execultarQuery($sql);
 	}
 
+	//buscar um novo filme a partir do seu codigo 
+	//observe que é criado um novo filme
+	//a partir do que é retornado do banco
+
+	public function buscarFilme($codigo)
+	{
+		$linha = $this->Conexao->obtemPrimeiroRegistroQuery("SELECT * FROM filme WHERE codigo = '$codigo'");
+
+		//cria um novo objeto com os dados que vieram do banco de dados
+		$filme = new Filme(
+			
+			$linha['titulo'],
+			$linha['codigo'],
+			$linha['sinopse'],
+			$linha['quantidade'],
+			$linha['trailer']
+
+		);
+		
+		return $filme;
+	}
+
+	//listar todos os filmes
+	public function getListarFilmes()
+	{
+		//obtem a lista de todos os filmes
+		$listagem = $this->Conexao->execultarQuery("SELECT * FROM filme"); //aqui ja temos todos os filmes
+		//cria um novo array onde guadaremos os filmes
+		$arrayFimes = array();
 	
+		//varre a lista de entrada da tabela filme 
+		//cria um novo objeto filme para cada entrada 
+		//da tabela
 
+		//AGORA PRECISAMOS SEPARAR OS FILMES ;)
+		
+		//varrenendo os filmes rececebidos na variavel $listagem
+		while ($linha= mysqli_fetch_array($listagem))
+		{
+			//cada vez que passamos por um registro é criado um novo objeto filme
+			$filme = new Filme(
+				$linha['titulo'],
+				$linha['codigo'],
+				$linha['sinopse'],
+				$linha['quantidade'],
+				$linha['trailer']
+			);
+			array_push($arrayFimes,$filme);
+		}
 
-
-
+		return $arrayFimes; //retorna um array de um filme
+	}
 }
+//cria um objeto repositorio de filmes. Esse objeto será 
+//acessado pelo restante da aplicação para receber e enviar objetos filmes 
+//para o banco de dados
+$repositorio = new RepositorioFilmesMySQL();
