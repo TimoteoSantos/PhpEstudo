@@ -6,5 +6,5 @@ interface IRepositorioFilmes
 	public function removerFilme($filme);
 	public function atualizarFilme($filme);
 	public function buscarFilme($filme);
-	public function getListarFilmes($filme);
+	public function getListarFilmes();
 }

@@ -2,7 +2,7 @@
 
 require_once 'Conexao.php';
 require_once 'Filmes.php';
-require_once 'FnterfaceFilmes.php';
+require_once 'InterfaceFilmes.php';
 
 //interface para que todo os futuros repositorio
 //que venham implementar esse projeto tenham
@@ -18,7 +18,7 @@ class RepositorioFilmesMySQL implements IRepositorioFilmes
 	public function __construct()
 	{
 		//cria o objeto que sera responsavel pelas chamadas ao banco de dados
-		$this->conexao = new Conexao("localhos","root","","popcorntv");
+		$this->conexao = new Conexao("localhost","root","Vida@1990","popcorntv");
 		//conecata ao banco de dados
 		if($this->conexao->conectar() == false){
 			
@@ -30,7 +30,6 @@ class RepositorioFilmesMySQL implements IRepositorioFilmes
 	//observar que a sql é preparada e enviada para para o banco
 	public function cadastrarFilme($filme)//estamos recebendo um objteo do tipo objeto com dados e funcoes deste objeto
 	{
-
 		$titulo = $filme->getTitulo();
 		$sinopse = $filme->getSinopse();
 		$quantidade = $filme->getQuantidate();
