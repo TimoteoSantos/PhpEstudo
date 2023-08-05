@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 04-Ago-2023 às 17:49
+-- Generation Time: 05-Ago-2023 às 09:45
 -- Versão do servidor: 10.1.13-MariaDB
 -- PHP Version: 5.5.37
 
@@ -30,13 +30,21 @@ USE `popcorntv`;
 
 DROP TABLE IF EXISTS `filmes`;
 CREATE TABLE IF NOT EXISTS `filmes` (
-  `codigo` int(11) NOT NULL,
+  `codigo` int(11) NOT NULL AUTO_INCREMENT,
   `titulo` varchar(255) DEFAULT NULL,
   `sinopse` varchar(255) DEFAULT NULL,
   `quantidade` varchar(11) DEFAULT NULL,
   `trailer` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`codigo`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `filmes`
+--
+
+INSERT INTO `filmes` (`codigo`, `titulo`, `sinopse`, `quantidade`, `trailer`) VALUES
+(1, 'dasdfsd', 'asdfasdf', '10', 'asdf'),
+(2, 'morri', 'eita', '50', 'oxe');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

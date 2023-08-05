@@ -18,7 +18,7 @@ class RepositorioFilmesMySQL implements IRepositorioFilmes
 	public function __construct()
 	{
 		//cria o objeto que sera responsavel pelas chamadas ao banco de dados
-		$this->conexao = new Conexao("localhost","root","Vida@1990","popcorntv");
+		$this->conexao = new Conexao("localhost","root","","popcorntv");
 		//conecata ao banco de dados
 		if($this->conexao->conectar() == false){
 			
@@ -70,7 +70,7 @@ class RepositorioFilmesMySQL implements IRepositorioFilmes
 		$linha = $this->Conexao->obtemPrimeiroRegistroQuery("SELECT * FROM filme WHERE codigo = '$codigo'");
 
 		//cria um novo objeto com os dados que vieram do banco de dados
-		$filme = new Filme(
+		$filme = new Filmes(
 			
 			$linha['titulo'],
 			$linha['codigo'],
@@ -87,7 +87,7 @@ class RepositorioFilmesMySQL implements IRepositorioFilmes
 	public function getListarFilmes()
 	{
 		//obtem a lista de todos os filmes
-		$listagem = $this->Conexao->execultarQuery("SELECT * FROM filme"); //aqui ja temos todos os filmes
+		$listagem = $this->conexao->execultarQuery("SELECT * FROM filmes"); //aqui ja temos todos os filmes
 		//cria um novo array onde guadaremos os filmes
 		$arrayFimes = array();
 	
@@ -101,7 +101,7 @@ class RepositorioFilmesMySQL implements IRepositorioFilmes
 		while ($linha= mysqli_fetch_array($listagem))
 		{
 			//cada vez que passamos por um registro é criado um novo objeto filme
-			$filme = new Filme(
+			$filme = new Filmes(
 				$linha['titulo'],
 				$linha['codigo'],
 				$linha['sinopse'],

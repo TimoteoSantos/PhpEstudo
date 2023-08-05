@@ -9,7 +9,7 @@ class Filmes
     private $trailer;
 
     //construtor
-    public function __construct(string $titulo, int $codigo, string $sinopse, int $quantidade, string $trailer)
+    public function __construct($titulo,$codigo,$sinopse,$quantidade,$trailer)
     {
         $this->titulo = $titulo;
         $this->codigo = $codigo;
@@ -19,7 +19,7 @@ class Filmes
     }
 
     //metodos de get e set de todos os dados
-    public function getTitulo():string //quanto uma funcao tem retorno podemo diver qual tipo de retorno
+    public function getTitulo() //quanto uma funcao tem retorno podemo diver qual tipo de retorno
     {
         return $this->titulo;
     }
@@ -29,7 +29,7 @@ class Filmes
         $this->titulo = $titulo;
     }
 
-    public function getCodigo():int
+    public function getCodigo()
     {
         return $this->codigo;
     }
@@ -39,7 +39,7 @@ class Filmes
         $this->codigo = $codigo;
     }
 
-    public function getSinopse():string
+    public function getSinopse()
     {
         return $this->sinopse;
     }
@@ -49,7 +49,7 @@ class Filmes
         $this->sinopse = $sinopse;
     }
 
-    public function getQuantidade():int
+    public function getQuantidade()
     {
         return $this->quantidade;
     }
@@ -59,7 +59,7 @@ class Filmes
         $this->quantidade = $quantidade;
     }
 
-    public function getTrailer():string
+    public function getTrailer()
     {
         return $this->trailer;
     }

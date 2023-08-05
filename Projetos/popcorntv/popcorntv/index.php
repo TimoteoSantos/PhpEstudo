@@ -1,6 +1,7 @@
 <?php
 
-	require 'app/RepositorioFilmes.php';
+	require 'app/RepositorioFilmes.php'; //ao requerer o repositorio ja é instaciada a classe porque dentro do repositorio ela foi instaciada
+	$filmes = $repositorio->getListarFilmes();//acessa todos os filmes cadastrados e atribui em $filmes
 
 ?>
 <!DOCTYPE html>
@@ -114,33 +115,27 @@
                         	<tr>
                         		<th></th>
                         		<th>Filme</th>
+								<th>Sinopse</th>
+								<th>Quantidade</th>
+								<th>Trailer </th>
                         		<th></th>
                         	</tr>
+							
+
+								<?php while ($filmeTemporario = array_shift($filmes)) {
+								?>
+
                         	<tr>
                         		<td class="col-md-1"><a class="btn btn-default" href="#" role="button">Alterar</a></td>
-                        		<td class="col-md-6">Poeira em alto mar</td>
+                        		<td class="col-md-6"><?php echo $filmeTemporario->getTitulo() ?></td>
+								<td class="col-md-6"><?php echo $filmeTemporario->getSinopse() ?></td>
+								<td class="col-md-6"><?php echo $filmeTemporario->getQuantidade() ?></td>								
+								<td class="col-md-6"><?php echo $filmeTemporario->getTrailer() ?></td>		
                         		<td class="col-md-1"><a class="btn btn-danger" href="#" role="button">Excluir</a></td>
                         	</tr>
-                        	<tr>
-                        		<td class="col-md-1"><a class="btn btn-default" href="#" role="button">Alterar</a></td>
-                        		<td class="col-md-6">As tranças do rei careca</td>
-                        		<td class="col-md-1"><a class="btn btn-danger" href="#" role="button">Excluir</a></td>
-                        	</tr>
-                        	<tr>
-                        		<td class="col-md-1"><a class="btn btn-default" href="#" role="button">Alterar</a></td>
-                        		<td class="col-md-6">A volta dos que não foram</td>
-                        		<td class="col-md-1"><a class="btn btn-danger" href="#" role="button">Excluir</a></td>
-                        	</tr>
-                        	<tr>
-                        		<td class="col-md-1"><a class="btn btn-default" href="#" role="button">Alterar</a></td>
-                        		<td class="col-md-6">jfsjflkr fdkrf dkf dkfj sklf</td>
-                        		<td class="col-md-1"><a class="btn btn-danger" href="#" role="button">Excluir</a></td>
-                        	</tr>
-                        	<tr>
-                        		<td class="col-md-1"><a class="btn btn-default" href="#" role="button">Alterar</a></td>
-                        		<td class="col-md-6">jfsjflkr fdkrf dkf dkfj sklf</td>
-                        		<td class="col-md-1"><a class="btn btn-danger" href="#" role="button">Excluir</a></td>
-                        	</tr>
+
+							<?php } ?>
+                        	
 						</table>
                       
                         

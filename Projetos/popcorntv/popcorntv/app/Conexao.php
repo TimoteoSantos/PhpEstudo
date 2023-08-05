@@ -10,7 +10,7 @@ class Conexao
 	private $conexao;
 
 	//metodo construtor inicaliza os metodos ao instanciar a classe conexao
-	public function __construct(string $host,string $usuario, string $senha, string $banco){
+	public function __construct($host,$usuario,$senha,$banco){
 
 		//enviado os dados para os metodos do objeto
 		$this->host = $host;
