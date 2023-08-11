@@ -18,3 +18,15 @@ spl_autoload_register(function($nomeclass)
     }
 
 });
+
+
+/*
+forma simplificada para entendimento
+
+spl_autoload_register(function($nomeClass)
+{
+       $fileName = "Class"."/".$nomeClass.".php";//caminho do arquivos
+        require ($fileName);
+    });
+
+*/
