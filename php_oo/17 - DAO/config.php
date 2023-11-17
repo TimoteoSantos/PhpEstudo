@@ -1,13 +1,9 @@
 <?php
+// Função spl_autoload que faz o autoload de classes
+spl_autoload_register(function ($className) {
+    $filename = $className . ".php"; // Caminho da classe
 
-spl_autoload(function ($className)
-{
-    $filename
-
-    if (file_exists($className.".php"))
-    {
-
+    if (file_exists($filename)) { // Verifica se o arquivo existe
+        require_once($filename); // Se existir, requer o arquivo
     }
-
-
 });
