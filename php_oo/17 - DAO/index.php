@@ -30,3 +30,6 @@ foreach ($estudantes as $estudante){
         echo $valor . "<br>";
     }
 }
+
+
+$usuario = new Usuario;
