@@ -17,14 +17,14 @@ class Sql extends  PDO
         //percorrndo os dados do $parameters recebidos
         foreach ($parameters as $key => $valor)
         {   //para cada linha chamar o metodo setParam que associa uma chave a um valor
-            $this->setParams($key,$valor);
+            $this->setParam($statment,$key,$valor);
         }
     }
 
     //PARAMENTRO QUE ASSOCIA
     private function setParam($statement,$key,$value)
     {
-        $statement->bindParams($key,$value);
+        $statement->bindParam($key,$value);
     }
 
     //execultar a consulta

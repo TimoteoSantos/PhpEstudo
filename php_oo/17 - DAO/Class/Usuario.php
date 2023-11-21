@@ -51,11 +51,41 @@ class Usuario
     }
 
     //um metodo que carrega o usuario que tem um id especifico
-    public function  loadBiId($id)
+    /* O metodo select espera receber dois parametros uma consulta e um array
+     * com os valores das consultas exemplo: 1. (select * from estudante nome = :$nome)
+     * 2 (array("nome" => $variavelQueContemONome)
+     */
+    public function  loadById($id)
     {
+        //iniciando a classe Sql que é responsavel por interagir com o bando
+        $Sql = new Sql();
+        //usando o metodo select da classe Sql para enviar uma instrução sql
+        $result = $Sql->select("SELECT * FROM estudantes WHERE ID = :id" , array(
+        ":id" => $id //esse array contem os dados a serem preparados pelo pdo
+    )) ;
 
-        $Sql = new Sql;
-        $result = $Sql->select("SELECT * FROM estudantes WHERE ID = '$id'");
+        //verificando se retornou dados
+        if(isset($result)){
+            //pegando os dados e colocando em uma variavel
+            $row = $result[0];
+            //associando os dados recebidos aos metodos do usuario
+            $this->setIdUsuario($row["ID"]);
+            $this->setNome($row['NOME']);
+            $this->setIdade($row['IDADE']);
+            $this->setAltura($row['ALTURA']);
+            $this->setPeso($row['PESO']);
+
+        }
     }
 
+    //retornando o metodo lodBiId() com jsonencode
+    public  function __toString(){
+        return json_encode(array(
+            "id" => $this->getIdusuario(),
+            "nome" => $this->getNome(),
+            "idade" => $this->getIdade(),
+            "peso" => $this->getPeso()
+
+        ));
+    }
 }
