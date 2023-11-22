@@ -93,9 +93,19 @@ class Usuario
     public static function getList()
     {   //instanciando o objeto $sql que trata com o bando de dados
         $sql = new Sql();
+        //acessa o metodo select enviando uma consulta e ele retorna os dados
         return $sql->select("SELECT * FROM Estudantes");
-
-
     }
+
+    //metodo que busca um usuario pelo nome
+    public static function search($usuario)
+
+    {
+        $sql = new Sqlserver();
+        return $sql->select("SELECT * FROM Estudantes WHERE NOME LIKE ? ");
+    }
+
+
+
 
 }
