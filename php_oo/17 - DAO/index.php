@@ -37,9 +37,23 @@ foreach ($estudantes as $estudante){
 //instaciando o usuario perceba que nao requerimos a classe
 $usuario = new Usuario;
 
+//TRAS UM USUARIO
+
 //chamando o mmetodo loadBiId() passando o numero a ser consultado
-$usuario->loadById(17);
+$usuario->loadById(14);
 //escrevendo o objeto como ja chamaos antes o metodo loadById temos o retorno no objeto
 //e como o objeto tem um metodo magico __toString() podemos escrever o objeto em questao
 echo $usuario;
 
+//TRAS TODOS OS USUARIOS
+
+//como o metodo getList() é estatico nao precisamos isntaciar o objeto estamos acessando diretamente
+//atraves de $lista apenas colocamos o nome da classe :: e o nome do metodo (classname::metodoname)
+
+
+//atribuindo a variavel $lista o metodo getList() da classe Usuario
+ $lista = Usuario::getList();
+ //dando um echo json_encode() no array recebido
+ echo json_encode($lista);
+
+ 

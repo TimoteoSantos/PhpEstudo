@@ -88,4 +88,14 @@ class Usuario
 
         ));
     }
+
+    //criando um metodo que lista todos os usuarios
+    public static function getList()
+    {   //instanciando o objeto $sql que trata com o bando de dados
+        $sql = new Sql();
+        return $sql->select("SELECT * FROM Estudantes");
+
+
+    }
+
 }
