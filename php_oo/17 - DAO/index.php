@@ -35,15 +35,15 @@ foreach ($estudantes as $estudante){
 */
 
 //instaciando o usuario perceba que nao requerimos a classe
-$usuario = new Usuario;
+//$usuario = new Usuario;
 
 //TRAS UM USUARIO
 
 //chamando o mmetodo loadBiId() passando o numero a ser consultado
-$usuario->loadById(14);
+//$usuario->loadById(1);
 //escrevendo o objeto como ja chamaos antes o metodo loadById temos o retorno no objeto
 //e como o objeto tem um metodo magico __toString() podemos escrever o objeto em questao
-echo $usuario;
+//echo $usuario;
 
 //TRAS TODOS OS USUARIOS
 
@@ -52,8 +52,14 @@ echo $usuario;
 
 
 //atribuindo a variavel $lista o metodo getList() da classe Usuario
- $lista = Usuario::getList();
+ //$lista = Usuario::getList();
  //dando um echo json_encode() no array recebido
- echo json_encode($lista);
+ //echo json_encode($lista);
 
- 
+//$lista2 = $usuario->search("tim");
+//echo json_encode($lista2);
+
+//metodo para saber se usuario e senha sao iguais aos passados para classe usuario
+$usuario = new Usuario;
+$usuario->login("timoteo","1235");
+echo $usuario;

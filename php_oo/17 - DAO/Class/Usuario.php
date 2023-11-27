@@ -7,6 +7,8 @@ class Usuario
     private $Idade;
     private $Altura;
     private $Peso;
+    private $senha;
+
 
     //retorna o id do usuario
     public function getIdusuario(){
@@ -50,6 +52,15 @@ class Usuario
         $this->Peso = $value;
     }
 
+    //reorna a senha
+    public function getSenha(){
+        return $this->senha;
+    }
+    //altera a senha
+    public function setSenha($senha){
+        $this->senha = $senha;
+    }
+
     //um metodo que carrega o usuario que tem um id especifico
     /* O metodo select espera receber dois parametros uma consulta e um array
      * com os valores das consultas exemplo: 1. (select * from estudante nome = :$nome)
@@ -60,7 +71,7 @@ class Usuario
         //iniciando a classe Sql que é responsavel por interagir com o bando
         $Sql = new Sql();
         //usando o metodo select da classe Sql para enviar uma instrução sql
-        $result = $Sql->select("SELECT * FROM estudantes WHERE ID = :id" , array(
+        $result = $Sql->select("SELECT * FROM usuarios WHERE ID = :id" , array(
         ":id" => $id //esse array contem os dados a serem preparados pelo pdo
     )) ;
 
@@ -94,18 +105,50 @@ class Usuario
     {   //instanciando o objeto $sql que trata com o bando de dados
         $sql = new Sql();
         //acessa o metodo select enviando uma consulta e ele retorna os dados
-        return $sql->select("SELECT * FROM Estudantes");
+        return $sql->select("SELECT * FROM usuarios");
     }
 
-    //metodo que busca um usuario pelo nome
-    public static function search($usuario)
+    //metodo que busca o usuario pelo nome
+    public function search($usuario)
+    {       //instanciando a classe Sql que contem o acesso ao banco
+            $sql = new Sql();
+            //acessando o metodo responsavel por receber a query e fazer o envio para o tratamento e posterior envio para o banco
+            $result = $sql->select("SELECT * FROM usuarios WHERE NOME LIKE :dados", array(
+                ":dados" => "%" . $usuario . "%"));
+            //retonando o resultado da consulta
+            return $result;
+    }
 
+    //metodo que verifica se o usuario e a senha estao corretos
+    public function  login($nome,$senha)
     {
-        $sql = new Sqlserver();
-        return $sql->select("SELECT * FROM Estudantes WHERE NOME LIKE ? ");
+        //iniciando a classe Sql que é responsavel por interagir com o bando
+        $Sql = new Sql();
+        //buscar o usuario pelo nome e senha
+        $result = $Sql->select("SELECT * FROM usuarios WHERE NOME = :nome AND SENHA = :senha" , array(
+            ":nome" => $nome,
+            ":senha" => $senha
+        )) ;
+
+        //verificando se retornou dados
+        //se o nome e a senha estao corretos chamando os sets para adicionar os dados do usuario ao objeto
+        //entenda que por estar dentro da classe nao estamos passandos os dados com um objeto do tipo usuario
+        //podemos passar direto para os set, o mesmo acontece se estivermos em uma classe que herde a classe
+        //principalmente porque nao estamos acessando os atributos diretamente mas sim atraves de um metodo de acesso set
+
+        if(count($result) > 0){
+            //pegando os dados e colocando em uma variavel
+            $row = $result[0];
+            //associando os dados recebidos aos metodos do usuario
+            $this->setIdUsuario($row["ID"]);
+            $this->setNome($row['NOME']);
+            $this->setIdade($row['IDADE']);
+            $this->setAltura($row['ALTURA']);
+            $this->setPeso($row['PESO']);
+        //se nao retornou dados da consulta
+        }else{
+            echo "senha ou usuario errado". "<br>";
+        }
     }
-
-
-
 
 }
