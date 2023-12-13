@@ -35,7 +35,7 @@ foreach ($estudantes as $estudante){
 */
 
 //instaciando o usuario perceba que nao requerimos a classe
-//$usuario = new Usuario;
+$usuario = new Usuario;
 
 //TRAS UM USUARIO
 
@@ -60,6 +60,14 @@ foreach ($estudantes as $estudante){
 //echo json_encode($lista2);
 
 //metodo para saber se usuario e senha sao iguais aos passados para classe usuario
+//$usuario = new Usuario;
+//$usuario->login("timoteo","123");
+//echo $usuario;//escreve o tosting
+
+
+//inserindo dados no banco
 $usuario = new Usuario;
-$usuario->login("timoteo","1235");
+$usuario->setNome("tiago");
+$usuario->setSenha('123');
+$usuario->Insert();
 echo $usuario;

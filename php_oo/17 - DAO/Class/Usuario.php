@@ -77,14 +77,7 @@ class Usuario
 
         //verificando se retornou dados
         if(isset($result)){
-            //pegando os dados e colocando em uma variavel
-            $row = $result[0];
-            //associando os dados recebidos aos metodos do usuario
-            $this->setIdUsuario($row["ID"]);
-            $this->setNome($row['NOME']);
-            $this->setIdade($row['IDADE']);
-            $this->setAltura($row['ALTURA']);
-            $this->setPeso($row['PESO']);
+            $this->DadosDainstancia($result[0]);
 
         }
     }
@@ -137,18 +130,50 @@ class Usuario
         //principalmente porque nao estamos acessando os atributos diretamente mas sim atraves de um metodo de acesso set
 
         if(count($result) > 0){
-            //pegando os dados e colocando em uma variavel
-            $row = $result[0];
-            //associando os dados recebidos aos metodos do usuario
-            $this->setIdUsuario($row["ID"]);
-            $this->setNome($row['NOME']);
-            $this->setIdade($row['IDADE']);
-            $this->setAltura($row['ALTURA']);
-            $this->setPeso($row['PESO']);
+            //chama um metodo que consegue setar os dados na instancia
+            $this->DadosDainstancia($result[0]);
+
         //se nao retornou dados da consulta
         }else{
             echo "senha ou usuario errado". "<br>";
         }
+    }
+
+    //esse metodo retorna todos os dados de uma instacia
+    public  function DadosDainstancia($dados)
+    {
+        $this->setIdUsuario($dados["ID"]);
+        $this->setNome($dados['NOME']);
+        $this->setIdade($dados['IDADE']);
+        $this->setAltura($dados['ALTURA']);
+        $this->setPeso($dados['PESO']);
+    }
+
+
+
+    //CONTINUAR DAQUI AULA 67
+
+
+
+    //metodo para fazer insert no banco de dados
+    public function Insert()
+    {
+        //instaciar a classe que manipul o banco
+        $sql = new Sql;
+        //fazendo uma precidure que vai quando gravar ira retornar o id criado
+        //em vez de criar uma consulta aqui estamos chamando uma precidure chamada
+        //sp_usuario_insert o codigo é criado dentro do banco de dados
+
+        $result = $sql->quuery("CALL sp_usuario_insert(:LOGIN , :SENHA)", array(
+            ':LOGIN'=>$this->getNome(),
+            ':SENHA'=>$this->getSenha()
+        ));
+
+        if(count($result) > 0) {
+            $this->DadosDainstancia($result[0]);
+        }
+
+
     }
 
 }

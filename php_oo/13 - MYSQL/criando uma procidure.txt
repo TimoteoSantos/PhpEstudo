@@ -1,0 +1,16 @@
+/*criando uma procidure*/
+
+CREATE PROCEDURE sp_usuario_insert(
+
+/*campos da precidure*/
+PNOME varchar(255),
+PSENHA varchar(255)
+)/* parametros da procidure*/
+
+/* POR CONVENSAO PARA NAO CONFUNDIR USAMOS "P" PARA PARAMETRO E "V" PARA VARIAVEL*/
+INSERT INTO usuarios (NOME, SENHA) VALUES (PNOME,PSENHA) 
+
+//retorna o ultimo elemento inserido no mysql com autoincremento
+SELEC * FROM usuarios WHERE LAST_INSERT_ID()
+
+BEGIN

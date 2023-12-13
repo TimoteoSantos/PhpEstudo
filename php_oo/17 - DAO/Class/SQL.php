@@ -1,7 +1,6 @@
 <?php
-/* * DAO é uma abstracao de banco de dados * * */
-
-class Sql extends  PDO
+//classe que interage com o banco de dados
+class Sql extends  PDO // ela extende da classe PDO
 {
     private $conn;
 
@@ -55,6 +54,4 @@ class Sql extends  PDO
         //retornando a reposta do query em um array associativo
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
-
-
 }
