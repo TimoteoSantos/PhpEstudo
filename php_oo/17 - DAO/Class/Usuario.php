@@ -168,11 +168,13 @@ class Usuario
             ':LOGIN'=>$this->getNome(),
             ':SENHA'=>$this->getSenha()
         ));
-
-        if(count($result) > 0) {
-            $this->DadosDainstancia($result[0]);
+    // Vamos verificar se a consulta foi bem-sucedida antes de tentar acessar os resultados
+    if ($result instanceof PDOStatement) {
+        $data = $result->fetch(PDO::FETCH_ASSOC); // Aqui estamos extraindo os dados como um array associativo
+        if ($data) {
+            $this->DadosDainstancia($result);
         }
-
+    }
 
     }
 

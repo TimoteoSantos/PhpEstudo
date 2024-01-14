@@ -33,4 +33,4 @@ $estoque = new Loja;
 //adicionando itens
 $estoque->adiciona("bermuda",2);//adicionando dados ao array
 $estoque->adiciona("camiseta",3);//adicionando dados ao array
-echo $estoque->itens['camiseta']; // escrevendo os dados
+echo $estoque->itens['bermuda']; // escrevendo os dados

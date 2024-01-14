@@ -68,6 +68,6 @@ $usuario = new Usuario;
 //inserindo dados no banco
 $usuario = new Usuario;
 $usuario->setNome("tiago");
-$usuario->setSenha('123');
-$usuario->Insert();
+$usuario->setSenha('1253');
+echo $usuario->Insert();
 echo $usuario;
