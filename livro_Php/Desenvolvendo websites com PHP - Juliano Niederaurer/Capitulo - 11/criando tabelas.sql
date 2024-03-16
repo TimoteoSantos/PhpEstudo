@@ -1,0 +1,48 @@
+-- usando um banco de dados
+USE dbteste;
+
+/*
+precisamos armazenar os seguintes campos 
+nome
+descricao
+preco
+peso
+categoria
+sgucategoria
+ifadicionais
+*/
+
+-- criando a tabela de produtos
+CREATE TABLE PRODUTOS
+(
+  CODIGO_PRODUTO SMALLINT NOT NULL,
+  NOME_PRODUTO VARCHAR(80) NOT NULL,
+  DESCRICAO_PRODUTO TEXT,
+  PRECO FLOAT NOT NULL,
+  PESO FLOAT,
+  COD_CATEGORIA SMALLINT NOT NULL,
+  COD_SUB_CATEGORIA SMALLINT NOT NULL,
+  IF_ADICIONAIS TEXT
+   
+);
+
+-- tabela categoria
+CREATE TABLE CATEGORIA
+(
+    COD_CATEGORIA SMALLINT NOT NULL,
+    NOME_CATEGORIA VARCHAR(60) NOT NULL
+
+);
+
+-- tabela subcategoria
+CREATE TABLE SUB_CATEGORIA
+(
+    COD_SUB_CATEGORIA SMALLINT NOT NULL,
+    NOME_SUB_CATEGORIA VARCHAR(60) NOT NULL,
+    COD_CATEGORIA SMALLINT NOT NULL
+);
+
+
+
+
+
