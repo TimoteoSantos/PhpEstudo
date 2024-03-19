@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/livro_Php/Desenvolvendo websites com PHP - Juliano Niederaurer/Capitulo - 11/CRUD.SQL" dialect="MariaDB" />
+    <file url="file://$PROJECT_DIR$/livro_Php/Desenvolvendo websites com PHP - Juliano Niederaurer/Capitulo - 11/dbteste.sql" dialect="MariaDB" />
+    <file url="file://$PROJECT_DIR$/livro_Php/Desenvolvendo websites com PHP - Juliano Niederaurer/Capitulo - 11/inserindo as categorias.sql" dialect="MariaDB" />
+    <file url="file://$PROJECT_DIR$/livro_Php/Desenvolvendo websites com PHP - Juliano Niederaurer/Capitulo - 11/inserindo dados.sql" dialect="MariaDB" />
+  </component>
+</project>
