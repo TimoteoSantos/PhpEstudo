@@ -1,0 +1,62 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+
+Route::get('/', function () {
+
+    return view('welcome');
+});
+
+//nome da rota onde podemos acessar
+
+//rotas para redenrizar view
+Route::get('/empresa', function(){
+    //caminho da rota retorna o caminho
+    return view('site/empresa');
+});
+
+//outra forma de redenrizar
+//passar a rota e o caminho
+//deve ser ultilizad em casos onde o unico objetivo é renderizar a pagina
+Route::view('/cadastro', 'site/cadastro');
+
+/*é uma rota que permite qualquer tipo de acesso porem nao é muito comum e nao é seguro */
+Route::any('/any', function(){
+
+    return "permite todo tipo de acesso http (put, delete, get, post)";
+});
+
+//se tentar acessar com outro metodo como por exemplo atraves do navegador ira causar erro pois o metodo get nao é suportado
+Route::match(['delete','pos'],'/match', function(){
+
+    return "permite apenas os metodos de acesso identificados expressamente no primeiro parametro";
+});
+
+//passagem de parametros
+//perceber a notação e tambem o atributo default
+Route::get('/produto/{id}/{cat?}', function($id,$cat = null){
+    //observe que podemos usar os valores recebidos pela variavel da funcao de kalback
+    return "o id do produto é ". $id . "e a categoria é  . $cat";
+});
+
+//redirecionamento
+//observe que estamos redirecionando para outra rota
+Route::get('/sobre', function(){
+    return redirect('empresa');
+});
+
+//outra forma de redirecionar
+Route::redirect('/sobre','/empresa');
+
+//rotas nomeadas
+Route::get('/news', function(){
+    return view('news');
+
+//colocando um nome amigavel a rota como se fosse um apelido
+})->name('noticias');
+
+Route::get('/novidades', function(){
+    //redireciona atraves do name da rota
+    return redirect()->route('noticias');
+});
+

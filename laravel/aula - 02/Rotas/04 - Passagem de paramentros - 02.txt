@@ -1,0 +1,33 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+
+Route::get('/', function () {
+
+    return view('welcome');
+});
+
+//passando um parametro pela url
+Route::get('/produto/{id}',function($id){
+    return 'O id do produto é: ' . $id;
+});
+
+//passando mais de um paramentro
+Route::get('/consultarVendas/{dataInicio}/{dataFinal}/{lojaOrigem}',
+function($dataInicio,
+$dataFinal,
+$lojaOrigem){
+
+return $dataInicio . $dataFinal . $lojaOrigem;
+
+});
+
+//parametros padrao observar o uso de interrrogação e o locao onde deve ser colocado o valor padrão
+Route::get('/consultarBaixasTodasLojas/{dataInicio}/{dataFinal}/{lojaOrigem?}',
+function($dataInicio,
+        $dataFinal,
+        $lojaOrigem = null){
+
+    return $dataInicio . $dataFinal . $lojaOrigem;
+
+});

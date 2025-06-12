@@ -1,0 +1,12 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+
+Route::get('/', function () {
+
+    return view('welcome');
+});
+
+Route::get('lista/{nome}/{idade}/{telefone?}',function($nome,$idade,$telefone = null){
+return $nome . $idade .$telefone;
+});

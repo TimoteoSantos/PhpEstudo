@@ -1,0 +1,6 @@
+1. precisa do git
+2. precisa do composer
+3. precisa instalar o laravel com o composer a seguir
+
+
+composer global require laravel/installer
