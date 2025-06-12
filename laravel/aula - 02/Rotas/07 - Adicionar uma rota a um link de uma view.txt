@@ -1,0 +1,26 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+use Symfony\Component\CssSelector\Node\FunctionNode;
+
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+//direciona o usuario para a rota contato
+Route::get('/contato', function(){
+    //retorna a view contato
+    return view('contato');
+    //<a href="cadastrar"> *Estou usando o nome da rota para um link </a>
+    // <!-- html usados na view contato observar o endereco do link-->
+});
+
+//rota responsavel por cadastrar um novo usuario
+Route::get('cadastrar', Function(){
+
+    //simula uma rota para ir para cadastro o que poderia ser uma view de cadastro
+    return "realizarCadastro (você esta na rota cadastrar)";
+    
+});
+

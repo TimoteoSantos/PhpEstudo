@@ -2,5 +2,8 @@
 2. precisa do composer
 3. precisa instalar o laravel com o composer a seguir
 
-
+//instalar o laravel
 composer global require laravel/installer
+
+//criar um novo projeto no laravel
+laravel new nomeProjeto
