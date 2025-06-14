@@ -1,0 +1,35 @@
+<?php
+
+use App\Http\Controllers\ContactController;
+use Illuminate\Support\Facades\Route;
+
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+//rota para um controller
+Route::get('/contato', [ContactController::class, 'listaContatos']);
+
+/*Enviar dados para o controller
+Observar que o na rota ultilizamos uma /{identificador}/{identificador}
+*/
+Route::get('/contato2/{id}',[ContactController::class, 'listaContatos']);
+
+/*Enviar dados com atributos padrao
+perceba que no controller defini qual seriam os dados padrao da classe e na rota usei o sinal de ? para dizer que 
+esse atributo pode receber valor padrao
+*/
+Route::get('/contato/{id?}/{telefone?}', [ContactController::class, 'listarContatos']);
+
+//observar que todas as rotas apontam para o mesmo controller a baixo esta como ficou o controller
+
+/*
+class ContactController extends Controller
+{
+    public function listaContatos($id = 1, $telefone = 0):int{
+        
+      return $id . $telefone;
+}
+*/
+
