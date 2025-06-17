@@ -1,0 +1,14 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class ContactController extends Controller
+{
+    public function listaContatos($id = 1, $telefone = 0):int{
+        
+      return $id . $telefone;
+}
+
+}

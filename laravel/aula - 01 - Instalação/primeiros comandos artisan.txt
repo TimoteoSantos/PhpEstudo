@@ -1,3 +1,16 @@
+//iniciarlizar o servidor artisan
 1. php artisan serve - inicializa o servidor do laravel ctrl + c para o servidor
+
+//colocar uma app em manutenção
 2. php artisan down - coloca a app em manutenção
+
+//tirar uma app de manutenção
 3. php artisan up - tira a app de modo de manutenção
+
+//criar um controller
+4. php artisan make::controller NomeController
+
+//excluir um controller
+5. a exlusão é feita de forma manual, apague o conteudo da pasta controller e verifique se tem rotas apontando para ele
+
+//
