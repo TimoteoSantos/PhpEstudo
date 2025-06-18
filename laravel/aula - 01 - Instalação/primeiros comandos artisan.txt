@@ -13,4 +13,6 @@
 //excluir um controller
 5. a exlusão é feita de forma manual, apague o conteudo da pasta controller e verifique se tem rotas apontando para ele
 
-//
+//listar todas as rotas da aplicação
+6. php artisan route:list
+

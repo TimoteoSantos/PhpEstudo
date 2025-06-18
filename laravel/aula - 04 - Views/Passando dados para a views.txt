@@ -1,0 +1,40 @@
+1. passamos dados para as views atraves de arrays nos controllers
+
+    public function index()
+    {
+        $nome = 'Rodrigo';
+        $idade = 10;
+        return view('empresa.empresa', ['nome' => $nome, 'idade' => $idade]);
+    }
+
+2. Recebemos esses dados nas views atraves do nome da variavel
+
+//perceber que o nome da variavel fica entre {{nomeVariavel}}
+Meu nome é {{$nome}} e minha idade é {{$idade}}
+
+3 . Caso nescessite que o laravel nao transforme o texto recebido em string como por exemplo
+//quando queremos passar html direto para renderizar usamos {!! $html !!} essa forma o laravel
+//nao faz tratamento, porem so em casos extritamente nescessários
+
+
+4. outra forma de enviar os dados para as views é ultilizando o compact();
+
+ficaria assim no controller
+
+   public function index()
+    {
+        $nome = 'Rodrigo';
+        $idade = 10;
+        return view('empresa.empresa', compact('nome','idade'));
+    }
+
+ficaria assim na view
+
+Meu nome é {{$nome}} e minha idade é {{$idade}}
+
+ficaria assim na rota
+//essa rota chama o medoto index do produto
+Route::resource('produto', ProdutoController::class);
+
+
+

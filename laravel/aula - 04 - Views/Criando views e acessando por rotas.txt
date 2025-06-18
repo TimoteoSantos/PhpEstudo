@@ -1,0 +1,27 @@
+1. uma view tem no nome .blade.php
+
+2. as views sao chamadas pela rota que retorna a view
+
+//essa rota chama o medoto index do produto
+Route::resource('produto', ProdutoController::class);
+/*    
+public function index()
+    {
+        return view('news');
+    }
+*/
+
+
+3. o controller pode retornar uma view dentro de uma pasta passando o caminho completo
+
+4. perceber que no caminho nao colocamos o nome do arquivo nem extensao apenas o nome do arquivo sem o .blade.php
+
+5. para especificar o caminho dos arquivos podemos ultilizar ponto ou barra porem devemos manter sempre o mesmo padrao
+
+/*
+    public function index()
+    {
+        return view('empresa.empresa');
+    }
+*/
+

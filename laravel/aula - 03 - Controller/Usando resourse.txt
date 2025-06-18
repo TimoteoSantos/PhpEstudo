@@ -1,0 +1,4 @@
+//isso cria um controller com a estrutura basica de um crud como os metodos para um crud porem esta em branco
+php artisan make:controller ProdutoController --resource
+
+
