@@ -1,0 +1,14 @@
+//comando que lista todas as rotas
+//esse comando lista todas as rotas da app
+php Route:list
+
+//comando que cria um cache de todas as rotas da app
+//nao é muito recomendado em producao
+php Route:cache
+
+//comando que remove o arquio de cache de rotas
+php Route:clear
+
+
+
+
