@@ -1,0 +1,32 @@
+para que seja possivel trabalhar, ou seja manipular o banco de dados o laravel ultiliza as migrations
+
+fica dentro da pasta
+
+Models/databases/migrations
+
+1. os migrations tem dois metodos principais 
+
+1.a o metodo up(){}
+esse metodo é execultado quando um migration é execultado
+
+ao execultar o metodo ira criar a tabela com as colunas como esta definido abaixo
+
+    public function up(): void
+    {
+        Schema::create('users', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
+            $table->rememberToken();
+            $table->timestamps();
+        });
+
+A classe que manipula as informações de banco de dados dentro das migrations é a  Schema::metodo
+
+
+1.b metodo down();
+metodo execultado quando o migration é revertido
+
+
