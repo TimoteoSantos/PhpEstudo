@@ -1,0 +1,6 @@
+1. precisaremos do pacote adicional o pacote doctrine/dbal
+
+
+//precisaremos rodas o composer
+composer require doctrine/dbal
+

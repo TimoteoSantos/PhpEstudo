@@ -1,0 +1,20 @@
+atualizando tabelas
+
+1. php artisan make:migration alterar_nome_tabela_produtos
+
+   */
+    public function up(): void
+    {
+        Schema::rename('produto','producto');
+    }
+
+observar o codigo acima que foi adicionado no migrate
+
+2 . php artisan make:migration excluir_tabela_producto // esse migration exclui a table produto
+
+    public function up(): void
+    {
+        Schema::dropIfExists('producto');
+    }
+
+

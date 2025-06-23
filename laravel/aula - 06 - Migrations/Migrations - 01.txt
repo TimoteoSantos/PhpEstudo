@@ -30,3 +30,9 @@ A classe que manipula as informações de banco de dados dentro das migrations �
 metodo execultado quando o migration é revertido
 
 
+
+
+
+
+
+

@@ -1,0 +1,14 @@
+execultando migrations
+
+1. php artisan migrate //ao execultar esse comando o laravel ira execultar todos os migrates
+2. php artisan migrate:rollback // desfaz o ultimo migrate
+3. php artisan migrate:status //verifica o status dos migrates
+
+
+atraves dos migrates podemos manipular o banco de dados quando execultamos o camando php artisan migrate 
+o laravel ira atuaizar as tabelas mas nao ira alterar os dados ja existentes no banco
+
+trabalhando com tabelas de banco de dados
+
+1. precisaremos criar nossos migrations
+2. php artisan make:migration create_produtos_table //comando que cria nosso migrate  
