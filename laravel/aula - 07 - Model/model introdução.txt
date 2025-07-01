@@ -1,0 +1,48 @@
+model é uma representação de uma entidade do banco de dados
+
+1. php artisan make:model Produtos
+
+um model é uma reprentação de uma tabela do banco de dados nele devemos informar para o laravel como trataremos os dados dessa tabela 
+e seus relacionamentos
+
+2. a diferença entre um model e um migrate é que um migrate se referenre a criação dos do banco de dados e o model de sua manipulação
+
+
+===========================================================================
+MODEL
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Produto extends Model
+{
+    //
+}
+
+==============================================================================
+CONTROLLER
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class ProdutoController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
+    {
+        $produto = \App\Models\Produto::all();
+        return dd($produto);
+    }
+
+}
+
+====================================================================
+ROTAS
+
+Route::get('/produtos', [ProdutoController::class ,'index']);

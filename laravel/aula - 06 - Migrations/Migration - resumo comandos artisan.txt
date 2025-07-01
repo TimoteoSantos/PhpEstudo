@@ -2,7 +2,9 @@
 1. php artisan migrate //ao execultar esse comando o laravel ira execultar todos os migrates
 2. php artisan migrate:rollback // desfaz o ultimo migrate
 3. php artisan migrate:status //verifica o status dos migrates
+
 4. php artisan make:migration create_produtos_table //comando que cria nosso migrate 
+
 5. php artisan make:migration alterar_nome_tabela_produtos
 6. php artisan make:migration excluir_tabela_producto // esse migration exclui a table produto
 7. php artisan migrate:reset //reverte todas as migracoes mas nao cria o banco novaente
