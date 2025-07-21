@@ -1,3 +1,5 @@
+//https://laravel.com/docs/12.x
+
 1. precisa do git
 2. precisa do composer
 3. precisa instalar o laravel com o composer a seguir

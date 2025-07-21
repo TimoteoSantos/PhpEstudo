@@ -1,0 +1,67 @@
+
+
+---------------------------------------------------------------------------
+
+https://www.youtube.com/watch?v=hnG0xRAH_M4
+
+--------------------------------------------------------------------------
+
+1º vc precisa ter o composer instalado na maquina
+2º precisa inicializar a pasta com o composer
+3º comando que faz a inincializacao da pasta = composer init nome/projeto
+
+4º COMANDOS COMPOSER
+
+Inicializar um projeto composer
+
+//composer init autor/projeto
+
+Instalar uma dependência
+
+//composer require dependencia 
+//composer require slim/slim
+//composer require symfony/var-dumper
+
+
+//Desinstalar pacotes
+
+//composer remove nome/dependencia
+//composer remove symfony/var-dumper
+
+
+//estrutura de um arquivo composer.json
+
+{
+    "name": "timoteo/comvarejo",
+    "description": "sistema de varejo",
+    "autoload": {
+        "psr-4": {
+            "Timoteo\\Comvarejo\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "timoteo",
+            "email": "santostimoteo21@gmail.com"
+        }
+    ],
+    "require": { 			//AMBIENTE DE DESENVOLVIMENOT E PRODUÇÃO
+        "slim/slim": "^4.14",
+        "symfony/var-dumper": "^7.3"
+    },
+    "require-dev": {			 //AMBIENTE DE DESENVOLVIMENTO
+        "phpunit/phpunit": "^11.5"
+    }
+}
+
+// COMO ISNTALAR OS PACOTES NO REQUIRE DEV
+
+
+
+
+
+
+
+
+
+
