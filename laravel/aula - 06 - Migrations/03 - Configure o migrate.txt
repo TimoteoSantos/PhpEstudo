@@ -1,0 +1,16 @@
+ public function up(): void
+    {
+        //criando a tabela
+        Schema::create('Produto', function(Blueprint $table){
+
+            //use a instacia $table 
+            $table->id();//cria a chave primaria
+            $table->String('nome', 110)->nullable();//cria um campo com nome tamanho e pode ser nulo
+            $table->String('sobrenome');//cria um campo com configuracoes padrao
+            $table->integer('idade');//um campo inteiro
+            $table->integer('ano')->nullable();
+            $table->timestamps();//campo de criacao e atualizacao
+
+
+        });
+    }
