@@ -1,0 +1,14 @@
+1. dentro do model especificar a tabela
+
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Produto extends Model
+{
+    //atributo table que indica qual a tabela desse objeto
+    protected $table = 'produtos';
+}
+

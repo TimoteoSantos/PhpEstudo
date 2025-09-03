@@ -8,7 +8,7 @@
 3. php artisan up - tira a app de modo de manutenção
 
 //criar um controller
-4. php artisan make::controller NomeController
+4. php artisan make:controller NomeController
 
 //excluir um controller
 5. a exlusão é feita de forma manual, apague o conteudo da pasta controller e verifique se tem rotas apontando para ele
